@@ -14,6 +14,7 @@
     "bootstrap": "^4.2.1",
     "chance": "^1.0.18",
     "faker": "^4.1.0",
+    "firebase": "^5.7.3",
     "gatsby": "^2.0.76",
     "gatsby-plugin-typography": "^2.2.5",
     "konva": "^2.6.0",
