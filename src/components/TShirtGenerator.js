@@ -28,6 +28,9 @@ const TShirtGenerator = ({occupations, adjectives}) => {
                     </Layer>
                 </Stage>
             </div>
+            <div className='row'>
+                <button className='mx-auto' onClick={() => window.location.reload()}>Generate!</button>
+            </div>
         </div>);
 }
 
