@@ -1,18 +1,23 @@
-import React from "react"
-import TShirtGenerator from '../components/TShirtGenerator.js'
 import { graphql } from "gatsby";
+import React from "react";
+import { Helmet } from 'react-helmet';
+import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import TShirtGenerator from '../components/TShirtGenerator.js';
+import '../styles/main.css';
 
-import '../styles/main.css'
-import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 const HomePage = ({ data }) => (
     <div className='app container'>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Facebook T-Shirt Generator</title>
+        </Helmet>
         <div className='col-md-10 offset-1 text-center'>
             <h1>{data.site.siteMetadata.title}</h1>
         </div>
-        <TShirtGenerator 
+        <TShirtGenerator
             occupations={data.allDataJson.edges.find(edge => edge.node.title === 'Occupations').node.values}
-            adjectives={data.allDataJson.edges.find(edge => edge.node.title === 'Adjectives')}
+            adjectives={data.allDataJson.edges.find(edge => edge.node.title === 'Adjectives').node.values}
         />
     </div>)
 
