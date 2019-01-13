@@ -7,12 +7,12 @@ import '../styles/main.css';
 
 
 const HomePage = ({ data }) => (
-    <div className='app container'>
+    <div className='app container-fluid'>
         <Helmet>
             <meta charSet="utf-8" />
             <title>Facebook T-Shirt Generator</title>
         </Helmet>
-        <div className='col-md-10 offset-1 text-center'>
+        <div className='text-center'>
             <h1>{data.site.siteMetadata.title}</h1>
         </div>
         <TShirtGenerator

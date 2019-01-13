@@ -18,6 +18,6 @@ export default class TShirtImage extends React.Component {
     }
 
     render() {
-        return <Image image={this.state.image} />;
+        return <Image {...this.props} image={this.state.image} />;
     }
 }

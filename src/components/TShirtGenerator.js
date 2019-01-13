@@ -11,20 +11,20 @@ const getPhrase = (occupations, adjectives) => {
         occupation: getItemFrom(occupations),
         adjective: getItemFrom(adjectives)
     });
-    return <Text x={100} y={110} fontSize={19} align='center' width={200} text={phrase}/>
+    return <Text x={85} y={110} fontSize={19} align='center' width={200} text={phrase}/>
 }
 
 const TShirtGenerator = ({occupations, adjectives}) => {
     return (
-        <div className='col-md-10 offset-1 text-center'>
+        <div>
             <div className='row'>
                 <Stage className='mx-auto' width={380} height={390}>
                     <Layer>
                         {getPhrase(occupations, adjectives)}
-                        {<Text x={170} y={250} fontSize={30} text={RandomEmoji.random({count: 1})[0].character}/>}
+                        {<Text x={170} y={270} fontSize={30} text={RandomEmoji.random({count: 1})[0].character}/>}
                     </Layer>
                     <Layer>
-                        <TShirtImage />
+                        <TShirtImage x={-15} />
                     </Layer>
                 </Stage>
             </div>
