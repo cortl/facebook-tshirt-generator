@@ -1,43 +1,32 @@
 import React from "react"
-import tshirt from '../../static/tshirt.png'
-import { Stage, Layer, Image, Text } from 'react-konva';
-import { generatePhrase } from "../utils/phrase-generator";
+import { generatePhrase } from '../utils/phrase-generator'
+import { Stage, Layer, Text } from 'react-konva';
+import TShirtImage from './TShirtImage'
 
-class TShirtImage extends React.Component {
-    state = {
-        image: null
-    };
-    componentDidMount() {
-        const image = new window.Image();
-        image.src = tshirt;
-        image.onload = () => {
-            // setState will redraw layer
-            // because "image" property is changed
-            this.setState({
-                image: image
-            });
-        };
-    }
+const getItemFrom = list => list[Math.floor(Math.random()*list.length)]
 
-    render() {
-        return <Image image={this.state.image} />;
-    }
+const getPhrase = (occupations, adjectives) => {
+    const phrase = generatePhrase({
+        occupation: getItemFrom(occupations),
+        adjective: getItemFrom(adjectives)
+    });
+    return <Text draggable={true} x={100} y={110} fontSize={19} align='center' width={200} text={phrase}/>
 }
 
-export class TShirtGenerator extends React.Component {
-    render() {
-        return (
-            <div className='col-md-10 offset-1 text-center'>
-                <div className='row'>
-                    <Stage className='mx-auto' width='380' height='390'>
-                        <Layer>
-                            <Text x={95} y={110} fontSize={19} align='center' text={generatePhrase()} />
-                        </Layer>
-                        <Layer>
-                            <TShirtImage />
-                        </Layer>
-                    </Stage>
-                </div>
-            </div>);
-    }
+const TShirtGenerator = ({occupations, adjectives}) => {
+    return (
+        <div className='col-md-10 offset-1 text-center'>
+            <div className='row'>
+                <Stage className='mx-auto' width={380} height={390}>
+                    <Layer>
+                        {getPhrase(occupations, adjectives)}
+                    </Layer>
+                    <Layer>
+                        <TShirtImage />
+                    </Layer>
+                </Stage>
+            </div>
+        </div>);
 }
+
+export default TShirtGenerator

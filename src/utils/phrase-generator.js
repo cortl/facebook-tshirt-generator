@@ -5,13 +5,14 @@ const chance = new Chance();
 
 const genders = ['OLD MAN', 'OLD WOMAN'];
 
-const phrases = {
-    professionPhrase: `Never\nunderestimate\nan\n ${chance.pickone(genders)}\n Who is also an\n ${chance.profession()}\n and was born in\n${chance.month()}`.toUpperCase(),
-    anger: `WALK AWAY\nTHIS\n${chance.profession().toUpperCase()}\nHAS ANGER ISSUES\nAND A\nSERIOUS\nDISLIKE\nFOR STUPID PEOPLE`.toUpperCase(),
-    location: `just an\n${chance.profession()}\nLiving in\n${faker.address.country()}`.toUpperCase()
-}
-
-export const generatePhrase = () => {
+export const generatePhrase = (options) => {
+    console.log(options)
+    const phrases = {
+        professionPhrase: `Never underestimate an ${chance.pickone(genders)} Who is also an ${options.occupation} and was born in${chance.month()}`,
+        anger: `WALK AWAY THIS ${options.occupation} HAS ANGER ISSUES AND A SERIOUS DISLIKE FOR STUPID PEOPLE`,
+        location: `just an ${options.occupation} Living in ${faker.address.country()}`
+    }
+    
     let keys = Object.keys(phrases);
-    return phrases[keys[keys.length * Math.random() << 0]];
+    return phrases[keys[keys.length * Math.random() << 0]].toUpperCase();
 }
