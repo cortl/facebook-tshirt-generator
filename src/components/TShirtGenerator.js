@@ -1,6 +1,7 @@
 import React from "react"
 import { generatePhrase } from '../utils/phrase-generator'
 import { Stage, Layer, Text } from 'react-konva';
+import RandomEmoji from 'random-emoji'
 import TShirtImage from './TShirtImage'
 
 const getItemFrom = list => list[Math.floor(Math.random()*list.length)]
@@ -10,7 +11,7 @@ const getPhrase = (occupations, adjectives) => {
         occupation: getItemFrom(occupations),
         adjective: getItemFrom(adjectives)
     });
-    return <Text draggable={true} x={100} y={110} fontSize={19} align='center' width={200} text={phrase}/>
+    return <Text x={100} y={110} fontSize={19} align='center' width={200} text={phrase}/>
 }
 
 const TShirtGenerator = ({occupations, adjectives}) => {
@@ -20,6 +21,7 @@ const TShirtGenerator = ({occupations, adjectives}) => {
                 <Stage className='mx-auto' width={380} height={390}>
                     <Layer>
                         {getPhrase(occupations, adjectives)}
+                        {<Text x={170} y={250} fontSize={30} text={RandomEmoji.random({count: 1})[0].character}/>}
                     </Layer>
                     <Layer>
                         <TShirtImage />

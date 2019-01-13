@@ -21,6 +21,7 @@
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-json": "^2.1.7",
     "konva": "^2.6.0",
+    "random-emoji": "^1.0.2",
     "react": "^16.5.1",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.1",
