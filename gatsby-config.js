@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Facebook T-Shirt Generator',
-    siteUrl: 'tshirts.cortlan.co',
+    siteUrl: 'https://tshirts.cortlan.dev',
     description: 'A T-Shirt generator for oddly specific audiences'
   },
   plugins: [
